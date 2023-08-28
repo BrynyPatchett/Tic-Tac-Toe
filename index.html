@@ -13,25 +13,28 @@
 <body class="body">
 
 
-    <div class="modal"><div class="modalContent">
+    <div class="modal">
+        <form action="">
+        <div class="modalContent">
             <div class="playerOneName">
                 <label for="playerOneNameInput">Player One Name</label>
-                <input type="text" name="playerOneNameInput" id="playerOneNameInput" value="Player One" placeholder="Player One">
+                <input type="text" name="playerOneNameInput" id="playerOneNameInput" value="Player One" placeholder="Player One" required>
             </div>
             <div class="playerOneSymbol">
                 <label for="playerOneSymbolInput">Player One Symbol</label>
-                <input type="text" name="playerOneSymbolInput" id="playerOneSymbolInput"  value="X" placeholder="X">
+                <input type="text" name="playerOneSymbolInput" id="playerOneSymbolInput"  minlength="1" maxlength="1" pattern="[\S]" value="X" placeholder="X" required title="Please enter a Single Character that is not whitespace"" >
             </div>
             <div class="playerTwoName">
                 <label for="playerTwoNameInput">Player Two Name</label>
-                <input type="text" name="playerTwoNameInput" id="playerTwoNameInput" value="Player Two" placeholder="Player Two">
+                <input type="text" name="playerTwoNameInput" id="playerTwoNameInput" value="Player Two" placeholder="Player Two" required>
             </div>
             <div class="playerTwoSymbol">
                 <label for="playerTwoSymbolInput">Player Two Symbol</label>
-                <input type="text" name="playerTwoSymbolInput" id="playerTwoSymbolInput" value="O" placeholder="O">
+                <input type="text" name="playerTwoSymbolInput" id="playerTwoSymbolInput" minlength="1" maxlength="1"  pattern="[\S]" value="O" placeholder="O" required title="Please enter a Single Character that is not whitespace">
             </div>
             <button id="beginGame">Play!</button>
         </div>
+    </form>
     </div>
 
 

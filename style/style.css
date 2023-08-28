@@ -72,16 +72,6 @@ body{
     }
 }
 
-.movedisplay{
-    /* background-color: burlywood;
-    height: 90%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10rem; */
-}
-
 
 .modal{
     background-color: var(--disabled-color);
@@ -106,12 +96,13 @@ body{
     margin-bottom: 180px;
     border-radius: 15px;
 
-    >button{
-        font-size: 1.4rem;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: var(--button-color);
-    }
+}
+
+#beginGame{
+    font-size: 1.4rem;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
 }
 
 label{
