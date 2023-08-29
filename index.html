@@ -15,27 +15,41 @@
 
     <div class="modal">
         <form action="">
-        <div class="modalContent">
-            <div class="playerOneName">
-                <label for="playerOneNameInput">Player One Name</label>
-                <input type="text" name="playerOneNameInput" id="playerOneNameInput" value="Player One" placeholder="Player One" required>
+            <div class="modalContent">
+                <div class="playerOneName">
+                    <label for="playerOneNameInput">Player One Name</label>
+                    <input type="text" name="playerOneNameInput" id="playerOneNameInput" value="Player One"
+                        placeholder="Player One" required>
+                </div>
+                <div class="playerOneSymbol">
+                    <label for="playerOneSymbolInput">Player One Symbol</label>
+                    <input type="text" name="playerOneSymbolInput" id="playerOneSymbolInput" minlength="1" maxlength="1"
+                        pattern="[\S]" value="X" placeholder="X" required
+                        title="Please enter a Single Character that is not whitespace"" >
             </div>
-            <div class="playerOneSymbol">
-                <label for="playerOneSymbolInput">Player One Symbol</label>
-                <input type="text" name="playerOneSymbolInput" id="playerOneSymbolInput"  minlength="1" maxlength="1" pattern="[\S]" value="X" placeholder="X" required title="Please enter a Single Character that is not whitespace"" >
+            <div class=" playerTwoName">
+                    <label for="playerTwoNameInput">Player Two Name</label>
+                    <input type="text" name="playerTwoNameInput" id="playerTwoNameInput" value="Player Two"
+                        placeholder="Player Two" required>
+                </div>
+                <div class="playerTwoSymbol">
+                    <label for="playerTwoSymbolInput">Player Two Symbol</label>
+                    <input type="text" name="playerTwoSymbolInput" id="playerTwoSymbolInput" minlength="1" maxlength="1"
+                        pattern="[\S]" value="O" placeholder="O" required
+                        title="Please enter a Single Character that is not whitespace">
+                </div>
+                <button class="beginGame">Play!</button>
             </div>
-            <div class="playerTwoName">
-                <label for="playerTwoNameInput">Player Two Name</label>
-                <input type="text" name="playerTwoNameInput" id="playerTwoNameInput" value="Player Two" placeholder="Player Two" required>
-            </div>
-            <div class="playerTwoSymbol">
-                <label for="playerTwoSymbolInput">Player Two Symbol</label>
-                <input type="text" name="playerTwoSymbolInput" id="playerTwoSymbolInput" minlength="1" maxlength="1"  pattern="[\S]" value="O" placeholder="O" required title="Please enter a Single Character that is not whitespace">
-            </div>
-            <button id="beginGame">Play!</button>
-        </div>
-    </form>
+        </form>
     </div>
+
+    <div class="modal" id="endGame">
+        <div class="modalContent" id="modalWinnerContent">
+            <h1 id="endMessage">Congratulations "Name", you Won!</h1>
+            <button class="beginGame" id="playAgain"  >Play Again!</button>
+        </div>
+    </div>
+
 
 
     <div class="tic-tac-toe">

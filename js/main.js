@@ -92,9 +92,6 @@ const Player = function (name, symbol) {
 
 
 
-// let playerOne = Player("Bryny","X");
-// let playerTwo = Player("Charlotte","O");
-
 const gameController = ((playerOne = Player("PlayerOne", "X"), playerTwo = Player("PlayerTwo", "O")) => {
 
     const players = [playerOne, playerTwo];
@@ -187,14 +184,21 @@ const DisplayController = (() => {
     let playerOne;
     let game;
     const gridSpots = document.querySelectorAll('.gridSpot');
-    const container = document.querySelector('.container');
     const modal = document.querySelector('.modal');
-    const beginGame = document.querySelector('#beginGame');
+    const startButton = document.querySelector('.newGameButton');
     const playerOneNameInput = document.querySelector('#playerOneNameInput');
     const playerOneSymbolInput = document.querySelector('#playerOneSymbolInput');
     const playerTwoNameInput = document.querySelector('#playerTwoNameInput');
     const playerTwoSymbolInput = document.querySelector('#playerTwoSymbolInput');
     const gameStarter = document.querySelector('form');
+    const endGameModal = document.querySelector('#endGame');
+    const playAgainButton = endGameModal.querySelector('button');
+    const endMessage = endGameModal.querySelector('#endMessage');
+
+
+
+
+
     let playerOneName = "Player One";
     let playerTwoName = "Player Two";
     let playerOneSymbol = "X";
@@ -233,7 +237,10 @@ const DisplayController = (() => {
         playerTwoName = playerTwoNameInput.value;
         playerTwoSymbol = playerTwoSymbolInput.value;
 
-
+        if(playerOneSymbol == playerTwoSymbol){
+            alert("Please use different Symbols for each player");
+            return;
+        }
 
         playerOne = Player(playerOneName, playerOneSymbol);
         playerTwo = Player(playerTwoName, playerTwoSymbol);
@@ -245,18 +252,30 @@ const DisplayController = (() => {
         playing = true;
     }
 
+    const displayEndGameMessage = function (message){
+        endMessage.textContent = message;
+        endGameModal["style"]["display"] = "flex";
+    }
+
     //link grid etc.
     const initGameDisplay = (function () {
+
+
+        playAgainButton.addEventListener("click", (e) =>{
+            endGameModal["style"]["display"] = "none";
+            newGameMenu();
+        })
 
         gameStarter.addEventListener("submit", (e) => {
             e.preventDefault();
             startNewGame();
         })
 
-        let startButton = document.querySelector('.newGameButton');
         startButton.addEventListener("click", (e) => {
             newGameMenu();
         });
+
+
 
         gridSpots.forEach(element => {
             element.addEventListener("click", (e) => {
@@ -280,22 +299,14 @@ const DisplayController = (() => {
             //then check win condition
             if (game.isWinner() !== "") {
                 playing = false;
-                alert(currentPlayer.getPlayerName() + " WINS THE GAME!");
-                // Show Win State Then Return
+                displayEndGameMessage(`Congratulations ${currentPlayer.getPlayerName()}, you Won!`);
                 return;
-
-
             }
             if (game.isTie()) {
                 playing = false;
-                alert("TIE!!!!!!!");
-                // startNewGame();
-                //Show Tie StateThen Return
+                displayEndGameMessage(`Game is a tie!`);
                 return;
             }
-        } else {
-            //Update Display for incorret move
-            alert("BAD MOVE IDIOT");
         }
     }
 
@@ -306,8 +317,3 @@ const DisplayController = (() => {
 
 })();
 
-
-
-// gameController.playRound(1,1);
-// gameController.gameStatus();
-// gameController.playRound(1,1);

@@ -45,11 +45,15 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 8rem;
-    /* .disabled{
-        background-color: var(--disabled-color);
-    } */
+   
 }
 
+.gridSpot:hover:empty{
+    background-color: rgb(138, 255, 144);
+}
+.gridSpot:hover:not(:empty){
+    background-color: rgb(255, 152, 152);
+}
 
 
 .container{
@@ -98,7 +102,19 @@ body{
 
 }
 
-#beginGame{
+#modalWinnerContent{
+    display: flex;
+    background-color: rgb(240, 240, 238);
+    border: 3px solid #000000a9;
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px;
+    margin-bottom: 180px;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.beginGame{
     font-size: 1.4rem;
     padding: 10px;
     border-radius: 10px;
